@@ -1,0 +1,14 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "Geocode Weather App",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Suyash Awasthi",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.73.0"
+  }
+}
