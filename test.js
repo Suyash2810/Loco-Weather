@@ -1,7 +1,25 @@
 const request = require('request');
+const yargs = require('yargs');
+
+
+const yargv = yargs
+    .options({
+        a: {
+            description: 'Address to fetch weather for.',
+            demand: true,
+            alias: 'address',
+            string: true
+        }
+    })
+    .help()
+    .alias('help', 'h')
+    .argv;
+
+const decodedAddress = yargv.address;
+const encodedAddress = encodeURIComponent(decodedAddress);
 
 request({
-        url: 'https://us1.locationiq.com/v1/search.php?key=e0e1e9d5d6eaaf&q=1301%20lombard%20street%20philedelphia&format=json',
+        url: `https://us1.locationiq.com/v1/search.php?key=e0e1e9d5d6eaaf&q=${encodedAddress}&format=json`,
         json: true
     },
     (error, response, body) => {
