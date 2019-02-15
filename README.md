@@ -59,5 +59,5 @@ To get the data based on place name type - node test.js -a name.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md]() file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/Suyash2810/Loco-Weather/blob/master/LICENSE) file for details
 
