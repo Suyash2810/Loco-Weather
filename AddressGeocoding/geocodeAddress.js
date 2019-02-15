@@ -1,11 +1,11 @@
 const request = require('request');
-
+const geoWeather = require('./currentWeatherForecast');
 
 let getGeocodeAddress = (decodedAddress, returnData) => {
     const encodedAddress = encodeURIComponent(decodedAddress);
 
     request({
-            url: `https://us1.locationiq.com/v1/search.php?key=****&q=${encodedAddress}&format=json`,
+            url: `https://us1.locationiq.com/v1/search.php?key=&q=${encodedAddress}&format=json`,
             json: true
         },
         (error, response, body) => {
@@ -22,6 +22,13 @@ let getGeocodeAddress = (decodedAddress, returnData) => {
                     latitude: body[0].lat,
                     longitude: body[0].lon
                 }
+                geoWeather.currentWeatherForecast(obj, (error, resultData) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(JSON.stringify(resultData, undefined, 3));
+                    }
+                });
                 returnData(obj);
             } else {
                 console.log("Error has been encountered.");
